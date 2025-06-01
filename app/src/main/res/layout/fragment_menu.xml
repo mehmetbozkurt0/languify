@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/duolingo_background"
+    tools:context="menu">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="331dp"
+        android:layout_height="43dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <LinearLayout
+        android:id="@+id/button8"
+        android:layout_width="375dp"
+        android:layout_height="73dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#A3B38E"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="92dp"
+            android:layout_height="47dp"
+            android:contentDescription="Icon"
+            android:src="@drawable/kelime" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="194dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="16dp"
+            android:text="WORDS"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button7"
+        android:layout_width="371dp"
+        android:layout_height="72dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#A3B38E"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:onClick="quiz"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:contentDescription="Icon"
+            android:src="@drawable/quiz" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="198dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:text="QUİZ"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button9"
+
+        android:layout_width="370dp"
+        android:layout_height="75dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#A3B38E"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:onClick="wordle"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <ImageView
+            android:id="@+id/icon2"
+            android:layout_width="86dp"
+            android:layout_height="50dp"
+            android:contentDescription="Icon"
+            android:src="@drawable/wordle" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="212dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="16dp"
+            android:text="WORDLE"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/button5"
+        android:layout_width="375dp"
+        android:layout_height="73dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#A3B38E"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:onClick="word"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="92dp"
+            android:layout_height="47dp"
+            android:contentDescription="Icon"
+            android:src="@drawable/kelime" />
+
+        <TextView
+            android:id="@+id/text6"
+            android:layout_width="194dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="16dp"
+            android:text="WORDS"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="353dp"
+        android:layout_height="41dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="353dp"
+        android:layout_height="144dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:gravity="center"
+        android:layout_width="212dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="32dp"
+        android:text="Hoş geldin!"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
+
+    <LinearLayout
+        android:id="@+id/button15"
+        android:layout_width="375dp"
+        android:layout_height="73dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="#A3B38E"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:onClick="ayarlar"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9"
+        app:layout_constraintVertical_bias="0.148">
+
+        <ImageView
+            android:id="@+id/icon15"
+            android:layout_width="89dp"
+            android:layout_height="60dp"
+            android:contentDescription="Icon"
+            android:src="@drawable/ayar" />
+
+        <TextView
+            android:id="@+id/text15"
+            android:layout_width="194dp"
+            android:layout_height="28dp"
+            android:text="SETTİNGS"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
