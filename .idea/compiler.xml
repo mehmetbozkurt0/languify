@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="languify.app" target="21" />
+      <module name="Duolingo_Clone.app" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>
