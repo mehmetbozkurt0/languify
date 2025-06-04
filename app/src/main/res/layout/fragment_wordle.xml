@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wordleContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/duolingo_background"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <GridLayout
+        android:id="@+id/wordGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="5"
+        android:rowCount="6"
+        android:layout_marginBottom="24dp"
+        />
+
+    <EditText
+        android:id="@+id/guessInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="5"
+        android:inputType="textCapCharacters"
+        android:hint="5 harfli kelime yaz"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginBottom="12dp"
+        />
+
+    <Button
+        android:id="@+id/submitGuessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tahmini Gönder"
+        />
+
+</LinearLayout>
