@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/duolingo_background"
+    tools:context=".words">
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#3F51B5"
+        android:onClick="ekle"
+        android:text="Kelime Ekle"
+        android:textColor="#E5E2EB"
+        android:textColorHighlight="#673AB7"
+        android:textColorHint="#673AB7"
+        android:textColorLink="#6A3ABF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#3F51B5"
+        android:onClick="cıkar"
+        android:text="Kelime Çıkar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#3F51B5"
+        android:onClick="listele"
+        android:text="Kelime Listele"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#3F51B5"
+        android:onClick="ogr"
+        android:text="Öğrenilen Kelime"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintVertical_bias="0.032" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="64dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="wordtomenu"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="64dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="wordtoayarlar"
+        android:src="@drawable/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintVertical_bias="0.904" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
