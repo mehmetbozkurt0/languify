@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import com.example.proje.databinding.FragmentAyarlarBinding
+import com.example.languify.databinding.FragmentAyarlarBinding
 
 class ayarlar : Fragment() {
 
@@ -26,6 +25,8 @@ class ayarlar : Fragment() {
         //(başlat/durdur)
         binding.buttonStopMusic.setOnClickListener {
             SoundManager.toggleMusic(requireContext(), R.raw.background)
+            val sharedPref = requireActivity().getSharedPreferences("settings_prefs", 0)
+            sharedPref.edit().putBoolean("music_enabled", SoundManager.isPlaying()).apply()
         }
         binding.button10.setOnClickListener {
             kvKk(it)

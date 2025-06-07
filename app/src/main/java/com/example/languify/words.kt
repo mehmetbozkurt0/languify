@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.example.proje.databinding.FragmentWordBinding
+import com.example.languify.databinding.FragmentWordBinding
 
 
 class words : Fragment() {

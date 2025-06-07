@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import androidx.annotation.NonNull
 import androidx.room.Entity

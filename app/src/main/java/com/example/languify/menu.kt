@@ -1,15 +1,15 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.proje.databinding.FragmentMenuBinding
+import com.example.languify.databinding.FragmentMenuBinding
 import kotlinx.coroutines.launch
 
 class menu : Fragment() {
@@ -27,7 +27,14 @@ class menu : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.button5.setOnClickListener {
+        val sharedPrefSettings = requireActivity().getSharedPreferences("settings_prefs", 0)
+        val musicEnabled = sharedPrefSettings.getBoolean("music_enabled", true) // Varsayılan: açık
+
+        if (musicEnabled && !SoundManager.isPlaying()) {
+            SoundManager.startMusic(requireContext(), R.raw.background)
+        }
+
+        binding.button8.setOnClickListener {
             word(it)
         }
 
@@ -39,9 +46,23 @@ class menu : Fragment() {
             quiz(it)
         }
 
+        binding.buttonAIStory.setOnClickListener {
+            aiHikaye(it)
+        }
+
         binding.button15.setOnClickListener{
             ayarlar(it)
         }
+
+        binding.buttonTestData.setOnClickListener {
+            val userId = requireActivity().getSharedPreferences("user_prefs", 0).getInt("userId", -1)
+            lifecycleScope.launch {
+                val db = UserDatabase.getDatabase(requireContext())
+                db.WordProgressDao().setLearnedWordsForTest(userId)
+                Toast.makeText(requireContext(), "Test verisi yüklendi!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
         val sharedPref = requireActivity().getSharedPreferences("user_prefs", 0)
         val userId = sharedPref.getInt("userId", -1)
@@ -57,6 +78,11 @@ class menu : Fragment() {
 
     fun word(view: View) {
         val action = menuDirections.actionMenuToWords()
+        Navigation.findNavController(view).navigate(action)
+    }
+
+    fun aiHikaye(view: View) {
+        val action = menuDirections.actionMenuToAIHikayeFragment()
         Navigation.findNavController(view).navigate(action)
     }
 

@@ -1,18 +1,13 @@
 
-package com.example.proje
+package com.example.languify
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proje.R
-import com.example.proje.WordAdapter
-import com.example.proje.WordViewModel
-
 
 
 class WordListFragment : Fragment() {

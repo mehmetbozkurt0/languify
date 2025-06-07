@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.example.proje.databinding.FragmentLoginBinding
-import com.example.proje.databinding.FragmentRestBinding
+import com.example.languify.databinding.FragmentRestBinding
 import kotlinx.coroutines.launch
 
 
-class rest : Fragment() {
+class PasswordResetFragment : Fragment() {
     private var _binding: FragmentRestBinding? = null
     private val binding get() = _binding!!
 

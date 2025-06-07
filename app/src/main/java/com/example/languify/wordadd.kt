@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.Manifest
 import android.content.Intent
@@ -24,8 +24,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.proje.databinding.FragmentLoginBinding
-import com.example.proje.databinding.FragmentWordadd2Binding
+import com.example.languify.databinding.FragmentWordadd2Binding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import java.io.File
@@ -172,11 +171,17 @@ class wordadd : Fragment() {
                         secilengorsel = intentfromresult.data
                         try {
                             if (Build.VERSION.SDK_INT >= 28) {
-                                val sourece = ImageDecoder.createSource(
-                                    requireActivity().contentResolver,
-                                    secilengorsel!!
-                                )
-                                secilenmap = ImageDecoder.decodeBitmap(sourece)
+                                val source = ImageDecoder.createSource(requireActivity().contentResolver, secilengorsel!!)
+                                secilenmap = ImageDecoder.decodeBitmap(source) { decoder, info, _ ->
+                                    val targetSize = 1024
+                                    val scale = targetSize.toFloat() / maxOf(info.size.width, info.size.height).toFloat()
+                                    if (scale < 1.0f) {
+                                        decoder.setTargetSize(
+                                            (info.size.width * scale).toInt(),
+                                            (info.size.height * scale).toInt()
+                                        )
+                                    }
+                                }
                                 binding.imageView2.setImageBitmap(secilenmap)
                             } else {
                                 secilenmap = MediaStore.Images.Media.getBitmap(
@@ -193,8 +198,6 @@ class wordadd : Fragment() {
                     }
                 }
             }
-
-
 
 
         permissionLauncher =
@@ -214,14 +217,57 @@ class wordadd : Fragment() {
 
     fun saveImageToInternalStorage(uri: Uri): String? {
         return try {
-            val inputStream = requireContext().contentResolver.openInputStream(uri)
-            val fileName = "img_${System.currentTimeMillis()}.jpg"
+            val contentResolver = requireContext().contentResolver
+            val mimeType = contentResolver.getType(uri)
+
+            val extension = when (mimeType) {
+                "image/png" -> ".png"
+                "image/jpeg", "image/jpg" -> ".jpg"
+                else -> ".jpg" // default fallback
+            }
+
+            // 1️⃣ Bitmap'i oku
+            val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                ImageDecoder.createSource(contentResolver, uri)
+            } else {
+                null
+            }
+
+            val originalBitmap = if (source != null) {
+                ImageDecoder.decodeBitmap(source)
+            } else {
+                MediaStore.Images.Media.getBitmap(contentResolver, uri)
+            }
+
+            // 2️⃣ Bitmap'i küçült (örnek: max 1024 px)
+            val targetSize = 1024
+            val scale = targetSize.toFloat() / maxOf(originalBitmap.width, originalBitmap.height).toFloat()
+            val scaledBitmap = if (scale < 1.0f) {
+                Bitmap.createScaledBitmap(
+                    originalBitmap,
+                    (originalBitmap.width * scale).toInt(),
+                    (originalBitmap.height * scale).toInt(),
+                    true
+                )
+            } else {
+                originalBitmap
+            }
+
+            // 3️⃣ Dosya kaydet
+            val fileName = "img_${System.currentTimeMillis()}$extension"
             val file = File(requireContext().filesDir, fileName)
             val outputStream = FileOutputStream(file)
-            inputStream?.copyTo(outputStream)
-            inputStream?.close()
+
+            if (extension == ".png") {
+                scaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            } else {
+                scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 85, outputStream)
+            }
+
+            outputStream.flush()
             outputStream.close()
-            file.absolutePath // Veritabanına bunu kaydet
+
+            file.absolutePath
         } catch (e: Exception) {
             e.printStackTrace()
             null

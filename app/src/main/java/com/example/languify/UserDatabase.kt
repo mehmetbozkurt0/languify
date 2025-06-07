@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.content.Context
 import androidx.room.Database

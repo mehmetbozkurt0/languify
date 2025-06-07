@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -15,13 +15,13 @@ interface WordDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM Word ORDER BY WordID ASC")
-   fun getAllWords(): LiveData<List<Word>>
+    fun getAllWords(): LiveData<List<Word>>
 
     @Query("SELECT * FROM Word ORDER BY WordID ASC")
     suspend fun getAllWordsNow(): List<Word>
 
     @Query("SELECT*FROM Word ORDER BY RANDOM() LIMIT :limit")
-   suspend fun getwordrand(limit:Int):List<Word>
+    suspend fun getwordrand(limit:Int):List<Word>
 
     @Delete
     suspend fun delete(Word:Word)
@@ -48,6 +48,14 @@ interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(word: Word): Long
+
+    @Query("""
+    SELECT w.* FROM Word w
+    INNER JOIN WordProgress wp ON wp.word_id = w.WordID
+    WHERE wp.is_learned = '1'
+""")
+    fun getLearnedWordsForAI(): List<Word>
+
 
 
 

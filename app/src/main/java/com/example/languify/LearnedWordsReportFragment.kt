@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.proje.databinding.FragmentLearnedWordsReportBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.languify.databinding.FragmentLearnedWordsReportBinding
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+
 class LearnedWordsReportFragment : Fragment() {
 
     private var _binding: FragmentLearnedWordsReportBinding? = null
@@ -39,9 +37,8 @@ class LearnedWordsReportFragment : Fragment() {
 
         lifecycleScope.launch {
             val db = UserDatabase.getDatabase(requireContext())
-            val learnedIds = db.WordProgressDao().getLearnedWordIds(userId)
-            val words = db.WordDao().getWordsByIds(learnedIds)
-            adapter.submitList(words)
+            val learnedWords = db.WordProgressDao().getLearnedWordsFull(userId)
+            adapter.submitList(learnedWords)
         }
     }
     override fun onDestroyView() {

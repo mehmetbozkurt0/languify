@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/duolingo_background"
-    tools:context=".rest">
+    tools:context=".PasswordResetFragment">
 
 
     <EditText
@@ -17,6 +17,9 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#696969"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,12 +27,13 @@
 
     <Button
         android:id="@+id/button15"
-        android:layout_width="136dp"
-        android:layout_height="48dp"
+        android:layout_width="157dp"
+        android:layout_height="47dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#3F51B5"
         android:onClick="sifre"
-        android:text="şifre sıfırla"
+        android:text="Şifreyi Değiştir"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +48,9 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#6F6F6F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"

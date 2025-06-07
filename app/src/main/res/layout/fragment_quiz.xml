@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/duolingo_background"
     android:layout_height="match_parent"
+    tools:context=".QuizFragment"
     android:padding="24dp">
 
 
@@ -20,18 +21,18 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-
     <TextView
         android:id="@+id/txtEnglishWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="EnglishWord"
+        android:textColor="#040404"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/quizImage"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizImage" />
 
 
     <!-- Geri bildirim metni -->
@@ -43,6 +44,9 @@
         android:layout_marginTop="52dp"
         android:hint="Türkçe karşılığı"
         android:inputType="text"
+        android:textColor="#020202"
+        android:textColorHighlight="#040404"
+        android:textColorHint="#3D3C3C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +59,7 @@
         android:layout_marginTop="56dp"
         android:backgroundTint="#3F51B5"
         android:text="Cevabı Kontrol Et"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTurkishAnswer" />
@@ -65,22 +70,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:text=""
+        android:textColor="#070707"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCheckAnswer" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/editTurkishAnswer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

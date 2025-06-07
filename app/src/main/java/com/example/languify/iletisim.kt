@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +17,7 @@ class iletisim : Fragment() {
 
         val textView = view.findViewById<TextView>(R.id.textView9)
         val textView1 = view.findViewById<TextView>(R.id.textView10)
-        textView.text = "Mail Adresimiz : ik@dillerim.com"
+        textView.text = "Mail Adresimiz : ik@languify.com"
         textView1.text = "Adres: Acarlar Mah. Şehit, Acarlar, Ali Karakuzu Sk. No:10, 45400 Turgutlu/Manisa"
             return view
     }

@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.proje.databinding.FragmentMenuBinding
-import com.example.proje.databinding.FragmentQuizStartBinding
+import com.example.languify.databinding.FragmentQuizStartBinding
 import java.time.LocalDate
 
 class QuizStartFragment : Fragment() {

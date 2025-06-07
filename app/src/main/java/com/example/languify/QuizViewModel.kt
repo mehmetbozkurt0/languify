@@ -1,14 +1,12 @@
-package com.example.proje
+package com.example.languify
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDate
 import javax.inject.Inject
 
-@HiltViewModel
 class QuizViewModel @Inject constructor(
     application: Application
 ) : AndroidViewModel(application) {

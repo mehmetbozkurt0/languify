@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/duolingo_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewSelectWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="5 Kelime Seçin:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:cacheColorHint="#000000"
+        android:choiceMode="multipleChoice" />
+
+    <Button
+        android:id="@+id/btnHikayeUret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hikaye Üret"
+        android:textColor="#FDFDFD" />
+
+    <TextView
+        android:id="@+id/txtHikaye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Hikaye burada görünecek..."
+        android:textColor="#202020"
+        android:textSize="16sp" />
+</LinearLayout>

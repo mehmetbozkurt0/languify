@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.proje.databinding.FragmentWordleBinding
+import com.example.languify.databinding.FragmentWordleBinding
 
 class wordle : Fragment() {
 
@@ -30,9 +30,6 @@ class wordle : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // 🎵 Arka plan müziği başlat
-        SoundManager.startMusic(requireContext(), R.raw.background)
 
         setupGrid()
 

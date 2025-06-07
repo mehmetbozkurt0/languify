@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.languify.login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_menu"
+            app:destination="@id/menu" />
+        <action
+            android:id="@+id/action_login_to_rest"
+            app:destination="@id/rest" />
+        <action
+            android:id="@+id/action_login_to_wordadd"
+            app:destination="@id/wordadd" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.languify.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AIHikayeFragment"
+        android:name="com.example.languify.AIHikayeFragment"
+        android:label="AI Hikaye"
+        tools:layout="@layout/fragment_ai_hikaye" />
+
+    <fragment
+        android:id="@+id/menu"
+        android:name="com.example.languify.menu"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menu_to_words"
+            app:destination="@id/words" />
+        <action
+            android:id="@+id/action_menu_to_wordle"
+            app:destination="@id/wordle" />
+        <action
+            android:id="@+id/action_menu_to_quizStartFragment"
+            app:destination="@id/quizStartFragment" />
+        <action
+            android:id="@+id/action_menu_to_ayarlar"
+            app:destination="@id/ayarlar" />
+        <action
+            android:id="@+id/action_menu_to_AIHikayeFragment"
+            app:destination="@id/AIHikayeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/words"
+        android:name="com.example.languify.words"
+        android:label="fragment_word"
+        tools:layout="@layout/fragment_word">
+        <action
+            android:id="@+id/action_words_to_wordListFragment2"
+            app:destination="@id/wordListFragment2" />
+        <action
+            android:id="@+id/action_words_to_wordadd"
+            app:destination="@id/wordadd" />
+        <action
+            android:id="@+id/action_words_to_delete"
+            app:destination="@id/delete" />
+        <action
+            android:id="@+id/action_words_to_learnedWordsReportFragment"
+            app:destination="@id/learnedWordsReportFragment" />
+        <action
+            android:id="@+id/action_words_to_ayarlar"
+            app:destination="@id/ayarlar" />
+        <action
+            android:id="@+id/action_words_to_menu"
+            app:destination="@id/menu" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/wordListFragment2"
+        android:name="com.example.languify.WordListFragment"
+        android:label="fragment_word_list"
+        tools:layout="@layout/fragment_word_list" />
+
+    <fragment
+        android:id="@+id/wordadd"
+        android:name="com.example.languify.wordadd"
+        android:label="fragment_wordadd2"
+        tools:layout="@layout/fragment_wordadd2">
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_wordadd_to_menu"
+            app:destination="@id/menu" />
+        <action
+            android:id="@+id/action_wordadd_to_ayarlar"
+            app:destination="@id/ayarlar" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/wordle"
+        android:name="com.example.languify.wordle"
+        android:label="fragment_wordle"
+        tools:layout="@layout/fragment_wordle" >
+        <action
+            android:id="@+id/action_wordle_to_menu"
+            app:destination="@id/menu" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/delete"
+        android:name="com.example.languify.delete"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" >
+        <action
+            android:id="@+id/action_delete_to_menu"
+            app:destination="@id/menu" />
+        <action
+            android:id="@+id/action_delete_to_ayarlar"
+            app:destination="@id/ayarlar" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rest"
+        android:name="com.example.languify.PasswordResetFragment"
+        android:label="fragment_rest"
+        tools:layout="@layout/fragment_rest" />
+
+    <!-- Quiz başlangıç ekranı -->
+    <fragment
+        android:id="@+id/quizStartFragment"
+        android:name="com.example.languify.QuizStartFragment"
+        android:label="Quiz Başlangıç"
+        tools:layout="@layout/fragment_quiz_start">
+        <action
+            android:id="@+id/action_quizStartFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_quizStartFragment_to_menu"
+            app:destination="@id/menu" />
+        <action
+            android:id="@+id/action_quizStartFragment_to_ayarlar"
+            app:destination="@id/ayarlar" />
+    </fragment>
+
+    <!-- Quiz çözüm ekranı -->
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.languify.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="questionCount"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/learnedWordsReportFragment"
+        android:name="com.example.languify.LearnedWordsReportFragment"
+        android:label="LearnedWordsReportFragment" />
+    <fragment
+        android:id="@+id/ayarlar"
+        android:name="com.example.languify.ayarlar"
+        android:label="ayarlar" >
+        <action
+            android:id="@+id/action_ayarlar_to_kvkk"
+            app:destination="@id/kvkk" />
+        <action
+            android:id="@+id/action_ayarlar_to_menu"
+            app:destination="@id/menu" />
+        <action
+            android:id="@+id/action_ayarlar_to_iletisim"
+            app:destination="@id/iletisim" />
+    </fragment>
+    <fragment
+        android:id="@+id/kvkk"
+        android:name="com.example.languify.kvkk"
+        android:label="fragment_kvkk"
+        tools:layout="@layout/fragment_kvkk" />
+    <fragment
+        android:id="@+id/iletisim"
+        android:name="com.example.languify.iletisim"
+        android:label="fragment_iletisim"
+        tools:layout="@layout/fragment_iletisim" />
+
+
+</navigation>

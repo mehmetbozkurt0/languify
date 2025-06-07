@@ -1,5 +1,6 @@
 
-package com.example.proje
+package com.example.languify
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
@@ -10,8 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.proje.R
-import com.example.proje.Word
+
 
 class WordAdapter : ListAdapter<Word, WordAdapter.WordViewHolder>(DIFF_CALLBACK) {
 
@@ -38,16 +38,42 @@ class WordAdapter : ListAdapter<Word, WordAdapter.WordViewHolder>(DIFF_CALLBACK)
         val word = getItem(position)
         holder.eng.text = word.EngWordName
         holder.tur.text = word.TurWordName
-        holder.WordSamples.text=word.WordSamples
+        holder.WordSamples.text = word.WordSamples
 
         word.imagepath?.let { path ->
-            val bitmap = BitmapFactory.decodeFile(path)
-            if (bitmap != null) {
-                holder.image.setImageBitmap(bitmap)
+            val scaledBitmap = getScaledBitmap(path)
+            if (scaledBitmap != null) {
+                holder.image.setImageBitmap(scaledBitmap)
             } else {
                 holder.image.setImageResource(R.drawable.placeholder)
             }
+        } ?: holder.image.setImageResource(R.drawable.placeholder)
+    }
+
+    fun getScaledBitmap(path: String, targetSize: Int = 1024): Bitmap? {
+        val options = BitmapFactory.Options().apply {
+            inJustDecodeBounds = true
         }
-            ?: holder.image.setImageResource(R.drawable.placeholder)
+        BitmapFactory.decodeFile(path, options)
+
+        options.inSampleSize = calculateInSampleSize(options, targetSize, targetSize)
+        options.inJustDecodeBounds = false
+
+        return BitmapFactory.decodeFile(path, options)
+    }
+
+    fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
+        val (height: Int, width: Int) = options.run { outHeight to outWidth }
+        var inSampleSize = 1
+
+        if (height > reqHeight || width > reqWidth) {
+            val halfHeight: Int = height / 2
+            val halfWidth: Int = width / 2
+
+            while (halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth) {
+                inSampleSize *= 2
+            }
+        }
+        return inSampleSize
     }
 }

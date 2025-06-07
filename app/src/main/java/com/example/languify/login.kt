@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.example.proje.databinding.FragmentLoginBinding
+import com.example.languify.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
 
 class login : Fragment() {
@@ -37,7 +37,8 @@ class login : Fragment() {
         }
 
         binding.button2.setOnClickListener {
-            kayıt(it)
+            val action = loginDirections.actionLoginToRegister()
+            findNavController().navigate(action)
         }
 
         binding.textView7.setOnClickListener {
@@ -71,34 +72,6 @@ class login : Fragment() {
         }
     }
 
-    fun kayıt(view: View) {
-        val name = binding.editTextText.text.toString().trim()
-        val password = binding.editTextTextPassword.text.toString().trim()
-
-        if (name.isEmpty() || password.isEmpty()) {
-            Toast.makeText(requireContext(), "Lütfen tüm alanları doldurun", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val newUser = user(name = name, password = password)
-
-        lifecycleScope.launch {
-            val db = UserDatabase.getDatabase(requireContext())
-            val insertedId = db.userdao().insertUser(newUser)
-
-            if (insertedId > 0) {
-                val sharedPref = requireActivity().getSharedPreferences("user_prefs", 0)
-                sharedPref.edit().putInt("userId", insertedId.toInt()).apply()
-
-                Toast.makeText(requireContext(), "Kayıt başarılı", Toast.LENGTH_SHORT).show()
-
-                val action = loginDirections.actionLoginToMenu()
-                findNavController().navigate(action)
-            } else {
-                Toast.makeText(requireContext(), "Kayıt başarısız", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
     fun rest(view: View) {
         val action = loginDirections.actionLoginToRest()
         Navigation.findNavController(view).navigate(action)

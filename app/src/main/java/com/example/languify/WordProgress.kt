@@ -1,4 +1,4 @@
-package com.example.proje
+package com.example.languify
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

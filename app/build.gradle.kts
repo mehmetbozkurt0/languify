@@ -4,16 +4,16 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp") // sadece Room için
-    id("org.jetbrains.kotlin.kapt") // ✅ kapt burada aktif olmalı
+    id("org.jetbrains.kotlin.kapt")
 }
 
 
 android {
-    namespace = "com.example.proje"
+    namespace = "com.example.languify"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.proje"
+        applicationId = "com.example.languify"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -75,6 +75,7 @@ dependencies {
     val nav_version = "2.8.1"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.48")
@@ -85,6 +86,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
 }
 
 // Opsiyonel Hilt yapılandırması

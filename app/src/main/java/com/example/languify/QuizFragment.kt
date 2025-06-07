@@ -1,7 +1,8 @@
-package com.example.proje
+package com.example.languify
 
 
 import android.app.AlertDialog
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
@@ -17,11 +18,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.time.LocalDate
 
-@AndroidEntryPoint
 class QuizFragment : Fragment() {
 
     private val quizViewModel: QuizViewModel by viewModels()
@@ -96,9 +94,9 @@ class QuizFragment : Fragment() {
         txtFeedback.text = ""
         val imagePath = currentWord.imagepath
         if (!imagePath.isNullOrEmpty()) {
-            val bitmap = BitmapFactory.decodeFile(imagePath)
-            if (bitmap != null) {
-                imgView.setImageBitmap(bitmap)
+            val scaledBitmap = getScaledBitmap(imagePath)
+            if (scaledBitmap != null) {
+                imgView.setImageBitmap(scaledBitmap as Bitmap?)
             } else {
                 imgView.setImageResource(R.drawable.placeholder)
             }
@@ -106,6 +104,34 @@ class QuizFragment : Fragment() {
             imgView.setImageResource(R.drawable.placeholder)
         }
     }
+
+    fun getScaledBitmap(path: String, targetSize: Int = 1024): Bitmap? {
+        val options = BitmapFactory.Options().apply {
+            inJustDecodeBounds = true
+        }
+        BitmapFactory.decodeFile(path, options)
+
+        options.inSampleSize = calculateInSampleSize(options, targetSize, targetSize)
+        options.inJustDecodeBounds = false
+
+        return BitmapFactory.decodeFile(path, options)
+    }
+
+    fun calculateInSampleSize(options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int): Int {
+        val (height: Int, width: Int) = options.run { outHeight to outWidth }
+        var inSampleSize = 1
+
+        if (height > reqHeight || width > reqWidth) {
+            val halfHeight: Int = height / 2
+            val halfWidth: Int = width / 2
+
+            while (halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth) {
+                inSampleSize *= 2
+            }
+        }
+        return inSampleSize
+    }
+
 
     private fun checkAnswer() {
         val userAnswer = edtAnswer.text.toString().trim()

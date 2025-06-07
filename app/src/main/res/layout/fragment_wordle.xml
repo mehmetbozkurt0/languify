@@ -23,19 +23,20 @@
         android:id="@+id/guessInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLength="5"
-        android:inputType="textCapCharacters"
-        android:hint="5 harfli kelime yaz"
-        android:gravity="center"
-        android:textSize="24sp"
         android:layout_marginBottom="12dp"
-        />
+        android:gravity="center"
+        android:hint="5 harfli kelime yaz"
+        android:inputType="textCapCharacters"
+        android:maxLength="5"
+        android:textColor="#141313"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/submitGuessButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tahmini Gönder"
-        />
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF" />
 
 </LinearLayout>
