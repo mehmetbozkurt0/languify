@@ -3,6 +3,7 @@
 Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme algoritması ve oyun tabanlı modüller ile desteklenmiş bir İngilizce kelime öğrenme uygulamasıdır.
 
 ##✨ Özellikler
+
 ✅ 6 Zaman Tekrarlı Öğrenme Algoritması
 → Kullanıcının kelimeleri belirli aralıklarla tekrar edip öğrenmesini sağlar.
 
@@ -21,9 +22,13 @@ Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme 
 ##🚀 Kullanım
 
 1️⃣ Uygulamayı açın.
+
 2️⃣ Yeni kullanıcı kaydı oluşturun veya giriş yapın.
+
 3️⃣ Kelime ekleyin, quiz çözün veya Wordle oynayın.
+
 4️⃣ Öğrenme algoritması sizi tekrar tarihleriyle yönlendirecektir.
+
 5️⃣ Yapay zeka modülü ile öğrendiğiniz kelimelerden özgün hikayeler üretin.
 
 ## 📷 Uygulama Ekran Görüntüleri
@@ -67,12 +72,19 @@ Metin Serinkaya - 232802062
 ##📂 Proje Modülleri
 
 Modül	Durum
+
 Kullanıcı Kayıt Modülü	✅ Evet
+
 Kelime Ekleme Modülü	✅ Evet
+
 Kelime Sorgulama (Test) Modülü	✅ Evet
+
 Kelime Sıklığı Değiştirme Modülü	❌ Hayır
+
 Analiz Rapor Modülü	✅ Evet
+
 Bulmaca (Wordle) Modülü	✅ Evet
+
 LLM Modülü ✅ Evet
 
 ##📌 Notlar
