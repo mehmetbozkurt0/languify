@@ -1,4 +1,5 @@
 #📱 Mobil İngilizce Kelime Öğrenme Uygulaması
+
 Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme algoritması ve oyun tabanlı modüller ile desteklenmiş bir İngilizce kelime öğrenme uygulamasıdır.
 
 ##✨ Özellikler
@@ -18,6 +19,7 @@ Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme 
 → Öğrenilen kelimeler üzerinden Wordle tarzı oyun oynama imkanı.
 
 ##🚀 Kullanım
+
 1️⃣ Uygulamayı açın.
 2️⃣ Yeni kullanıcı kaydı oluşturun veya giriş yapın.
 3️⃣ Kelime ekleyin, quiz çözün veya Wordle oynayın.
@@ -25,6 +27,7 @@ Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme 
 5️⃣ Yapay zeka modülü ile öğrendiğiniz kelimelerden özgün hikayeler üretin.
 
 ## 📷 Uygulama Ekran Görüntüleri
+
 
 ### 🔹 Ana Sayfa
 <img src="/images/IMG-20250608-WA0006.jpg" alt="Ana Sayfa" width="300"/>
@@ -52,6 +55,7 @@ Bu proje, mobil platform için geliştirilen, kullanıcıya tekrarlı öğrenme 
 
 
 ##👥 Geliştirici Ekip
+
 Mehmet Bozkurt  - 232802042
 
 Mustafa İnce    - 232802021
@@ -61,6 +65,7 @@ Mustafa Gürhan  - 232802049
 Metin Serinkaya - 232802062
 
 ##📂 Proje Modülleri
+
 Modül	Durum
 Kullanıcı Kayıt Modülü	✅ Evet
 Kelime Ekleme Modülü	✅ Evet
@@ -71,5 +76,6 @@ Bulmaca (Wordle) Modülü	✅ Evet
 LLM Modülü ✅ Evet
 
 ##📌 Notlar
+
 Bu proje akademik amaçlı geliştirilmiştir.
 Tüm modüllerin işleyişi video ile gösterilmiştir ve Scrum süreçleri Trello üzerinde takip edilmiştir.
